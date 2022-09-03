@@ -7,13 +7,14 @@ import { useRouter } from 'next/router'
 import campaignFactory from 'utils/ethereum/campaignFactory'
 import HeadComps from 'components/Head/HeadComps'
 import Layout from 'components/Layout/Layout'
+import Logo from 'components/Logo'
 
 export default function Home({ campaigns }) {
   const router = useRouter()
 
   const handleCreateCampaign = e => {
     e.preventDefault()
-    router.push('/campaigns/new')
+    //router.push('/campaigns/new')
   }
 
   const renderCampaigns = () => {
@@ -42,15 +43,15 @@ export default function Home({ campaigns }) {
       <HeadComps />
       <Container>
         <Header as="h3">Open Campaigns</Header>
-        <Button
-          primary
-          content="Create Campaign"
-          icon="add circle"
-          floated="right"
-          onClick={handleCreateCampaign}
-        />
         {renderCampaigns()}
+        <Logo />
       </Container>
+      <Button
+        primary
+        content="Create Campaign"
+        icon="add circle"
+        onClick={handleCreateCampaign}
+      />
     </Layout>
   )
 }

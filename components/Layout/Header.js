@@ -1,36 +1,30 @@
 import { useRouter } from 'next/router'
-import { Menu} from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 
 function Header() {
   const router = useRouter()
 
-  const handleCampaignsClick = (e) => {
+  const handleCampaignsClick = e => {
     e.preventDefault()
     router.push('/')
   }
 
-  const handlePlusClick = (e) => {
+  const handleSwapClick = e => {
     e.preventDefault()
-    router.push('/campaigns/new')
+    router.push('/user')
   }
   return (
-    <Menu style={{ margin: '20px 0'}}>
-      <Menu.Item name='crowdcoin'>
-        CrowdCoin
+    <Menu style={{ margin: '20px 0', backgroundColor: 'lightSalmon' }}>
+      <Menu.Item
+        name="crowdcoin"
+        style={{ backgroundColor: 'white' }}
+        onClick={handleSwapClick}
+      >
+        DAOSwap
       </Menu.Item>
-      <Menu.Menu position='right'>
-        <Menu.Item
-          name='campaigns'
-          onClick={handleCampaignsClick}
-        >
+      <Menu.Menu style={{ backgroundColor: 'white' }} position="right">
+        <Menu.Item name="campaigns" onClick={handleCampaignsClick}>
           Campaigns
-        </Menu.Item>
-
-        <Menu.Item
-          name='+'
-          onClick={handlePlusClick}
-        >
-          +
         </Menu.Item>
       </Menu.Menu>
     </Menu>

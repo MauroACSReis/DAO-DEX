@@ -1,4 +1,11 @@
-import { Container, Header, Form, Input, Button, Message } from 'semantic-ui-react'
+import {
+  Container,
+  Header,
+  Form,
+  Input,
+  Button,
+  Message
+} from 'semantic-ui-react'
 import HeadComps from 'components/Head/HeadComps'
 import Layout from 'components/Layout/Layout'
 import { useState } from 'react'
@@ -14,19 +21,19 @@ export default function New({ address }) {
   const [loading, setLoading] = useState(false)
   const [errorMag, setErrorMag] = useState('')
 
-  const handleOnChange = (e) => {
+  const handleOnChange = e => {
     setValue(e.target.value)
   }
 
-  const handleOnChangeDesc = (e) => {
+  const handleOnChangeDesc = e => {
     setDesc(e.target.value)
   }
-  
-  const handleOnChangeRecipient = (e) => {
+
+  const handleOnChangeRecipient = e => {
     setRecipient(e.target.value)
   }
 
-  const handleOnSubmit = async (e) => {
+  const handleOnSubmit = async e => {
     e.preventDefault()
     setLoading(true)
     setErrorMag('')
@@ -34,13 +41,11 @@ export default function New({ address }) {
     try {
       const campaign = Campaign(address)
       const accounts = await web3.eth.getAccounts()
-      await campaign.methods.createRequest(
-        desc,
-        web3.utils.toWei(value, 'ether'),
-        recipient
-      ).send({from: accounts[0] })
+      await campaign.methods
+        .createRequest(desc, web3.utils.toWei(value, 'ether'), recipient)
+        .send({ from: accounts[0] })
       afterSubmit()
-    } catch(err) {
+    } catch (err) {
       console.log(err)
       setErrorMag(err.message)
     } finally {
@@ -53,15 +58,15 @@ export default function New({ address }) {
     router.replace(`/campaigns/${address}/requests`)
   }
 
-  const handleOnClickBack = (e) => {
+  const handleOnClickBack = e => {
     e.preventDefault()
     router.push(`/campaigns/${address}/requests`)
   }
   return (
     <Layout>
-      <HeadComps title="Create a Request"/>
+      <HeadComps title="Create a Request" />
       <Container>
-        <Header as='h3'>Create a Request</Header>
+        <Header as="h3">Create a Request</Header>
         <Form onSubmit={handleOnSubmit} loading={loading} error={!!errorMag}>
           <Form.Field>
             <label>Description</label>
@@ -97,8 +102,17 @@ export default function New({ address }) {
             />
           </Form.Field>
           <Message error header="Oops!" content={errorMag} />
-          <Button loading={loading} primary type='submit'>Create!</Button>
-          <Button loading={loading} primary onClick={handleOnClickBack} type='button'>Back</Button>
+          <Button loading={loading} primary type="submit">
+            Create!
+          </Button>
+          <Button
+            loading={loading}
+            primary
+            onClick={handleOnClickBack}
+            type="button"
+          >
+            Back
+          </Button>
         </Form>
       </Container>
     </Layout>
@@ -110,7 +124,7 @@ export async function getServerSideProps(context) {
     const { address } = context.params
     return {
       props: {
-        address,
+        address
       }
     }
   } catch (err) {

@@ -1,9 +1,6 @@
 import Head from 'next/head'
 
-function HeadComps({
-  title = 'Web3 Campaigns',
-  desc = 'Web3 Campaigns',
-}) {
+function HeadComps({ title = 'DAOSwap', desc = 'Web3 Crowndfounds and DEX' }) {
   return (
     <Head>
       <title>{title}</title>

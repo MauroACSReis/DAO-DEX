@@ -50,29 +50,29 @@ export default function Address({
         description:
           'The balance is how much money this campaign has left to spand',
         style: { overflowWrap: 'break-word' }
-      },
+      }
     ]
 
     return <Card.Group items={items} />
   }
   return (
     <Layout>
-      <HeadComps title="Address"/>
+      <HeadComps title="Address" />
       <Container>
-        <Header as='h3'>Campaign Details</Header>
+        <Header as="h3">Campaign Details</Header>
         <Grid>
           <Grid.Row>
-            <Grid.Column width={10}>
-              {renderCards()}
-            </Grid.Column>
+            <Grid.Column width={10}>{renderCards()}</Grid.Column>
             <Grid.Column width={6}>
-                <ContributeForm address={address} />
+              <ContributeForm address={address} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
               <Link href={`/campaigns/${address}/requests`}>
-                <a><Button primary>View Requests</Button></a>
+                <a>
+                  <Button primary>View Requests</Button>
+                </a>
               </Link>
             </Grid.Column>
           </Grid.Row>
@@ -94,7 +94,7 @@ export async function getServerSideProps(context) {
         balance: summary[1],
         requestsCount: summary[2],
         approversCount: summary[3],
-        managerAddress: summary[4],
+        managerAddress: summary[4]
       }
     }
   } catch (err) {
