@@ -1,3 +1,7 @@
+:root {
+  overflow-y: hidden;
+}
+
 html,
 body {
   padding: 0;

@@ -11,7 +11,7 @@ function Header() {
 
   const handleSwapClick = e => {
     e.preventDefault()
-    router.push('/user')
+    router.push('/signin')
   }
   return (
     <Menu style={{ margin: '20px 0', backgroundColor: 'lightSalmon' }}>

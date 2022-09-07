@@ -94,7 +94,7 @@ function SignIn() {
       <div>
         <br />
         <button>
-          <Link href="/user">To Exchange (under maintenance)</Link>
+          <Link href="/user">To Exchange</Link>
         </button>
       </div>
     </div>
