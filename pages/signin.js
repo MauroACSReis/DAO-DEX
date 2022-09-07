@@ -7,6 +7,7 @@ import { WalletConnectConnector } from 'wagmi/connectors/walletConnect'
 import axios from 'axios'
 import HeadComps from 'components/Head/HeadComps'
 import Header from 'components/Layout/Header'
+import Link from 'next/link'
 
 function SignIn() {
   const { connectAsync } = useConnect()
@@ -90,6 +91,12 @@ function SignIn() {
       <button onClick={() => handleAuth('wal')}>
         Authenticate via Wallet Connect
       </button>
+      <div>
+        <br />
+        <button>
+          <Link href="/user">To Exchange (under maintenance)</Link>
+        </button>
+      </div>
     </div>
   )
 }
