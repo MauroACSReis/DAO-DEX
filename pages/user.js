@@ -4,6 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useSendTransaction } from 'wagmi'
 import Header from 'components/Layout/Header'
+import { Container } from 'semantic-ui-react'
 
 function User({ user, balance }) {
   const [fromToken] = useState('0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE')
@@ -38,8 +39,8 @@ function User({ user, balance }) {
   }
 
   return (
-    <>
-      <Header />
+    <Container>
+      <Header as="h3" style={{ width: '100px' }}></Header>
       <div>
         <select>
           <option value="0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE">
@@ -80,7 +81,7 @@ function User({ user, balance }) {
           Sign out
         </button>
       </div>
-    </>
+    </Container>
   )
 }
 

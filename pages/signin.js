@@ -8,6 +8,7 @@ import axios from 'axios'
 import HeadComps from 'components/Head/HeadComps'
 import Header from 'components/Layout/Header'
 import Link from 'next/link'
+import { Container } from 'semantic-ui-react'
 
 function SignIn() {
   const { connectAsync } = useConnect()
@@ -76,9 +77,8 @@ function SignIn() {
   }
 
   return (
-    <div>
-      <HeadComps />
-      <Header />
+    <Container>
+      <Header as="h3" style={{ wordBreak: 'break-all' }}></Header>
       <h3>Web3 Authentication</h3>
       <button onClick={() => handleAuth('meta')}>
         Authenticate via Metamask
@@ -97,7 +97,7 @@ function SignIn() {
           <Link href="/user">To Exchange</Link>
         </button>
       </div>
-    </div>
+    </Container>
   )
 }
 
