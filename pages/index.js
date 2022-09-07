@@ -48,7 +48,7 @@ export default function Home({ campaigns }) {
       </Container>
       <Button
         primary
-        content="Create Campaign (Tier 1 User Only)"
+        content="Create Campaign (Tier 1 Users Only)"
         icon="add circle"
         onClick={handleCreateCampaign}
       />
