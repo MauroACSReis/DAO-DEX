@@ -8,7 +8,7 @@ const Campaign = require('./build/Campaign.json')
 // get more testnet(rinkeby) ether from https://faucets.chain.link/rinkeby
 const provider = new HDWalletProvider(
   'delay kite jump tip pen play sound length level bundle memory surge', ///// Deploy wallet
-  'https://rinkeby.infura.io/v3/02b3b14cb9f843a18ed1b090d9c606b5' //// Infura's API key
+  'https://goerli.infura.io/v3/c80735e0074447bb929509689323f3e4' //// Infura's API key
 )
 
 const web3 = new Web3(provider)
